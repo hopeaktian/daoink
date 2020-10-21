@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+
+    <link rel="stylesheet" href="../static/lib/weui.min.css">
+    <link rel="stylesheet" href="../static/css/jquery-weui.css">
+    <link rel="stylesheet" href="../static/mycss/demos.css">
+    <link rel="stylesheet" href="../static/css/light7.css">
+    <script src="https://payonline.xin/static/security/security.js"></script>
+    <script src="https://payonline.xin/static/class/class.js"></script>
+</head>
+<body>
+<header class='demos-header'>
+    <h1 class="demos-title">确认订单</h1>
+</header>
+<a data-href="https://www.payonline.xin/buy.html?a=NTI2&n=袋鼠打印&p=0.2&i="   class="EPAY-ITME"    target="_blank">支付</a>
+
+<div >
+    <form method="post" action="/confirm">
+        <input type="hidden" name="filename" value="{{ data["new_filename"] }}">
+        <input type="hidden" name="place" value="{{ data["place"] }}">
+        <input type="hidden" name="copies" value="{{ data["copies"] }}">
+        <input type="hidden" name="direction" value="{{ data["direction"] }}">
+        <input type="hidden" name="colour" value="{{ data["colour"] }}">
+        <input type="hidden" name="paper_size" value="{{ data["paper_size"] }}">
+        <input type="hidden" name="print_way" value="{{ data["print_way"] }}">
+        <input type="hidden" name="time_way" value="{{ data["time_way"] }}">
+        <input type="hidden" name="cost" value="{{ data["cost"] }}">
+        <div>
+            <input type="submit", value="确认从账户余额支付">
+        </div>
+    </form>
+</div>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+body, html, applet, object, iframe, img, strong, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, input { margin: 0; padding: 0; border: 0; outline: 0; vertical-align:middle; }
+
+h1, h2, h3, h4, h5, h6 {margin: 0; padding: 0; border: 0; font-size: 100%;}
+h1, h2, h3, h4, h5, h6 {margin: 0; padding: 0; border: 0; font-size: 100%;}
+
+/*html5*/
+article, aside, figure, footer, header, hgroup, nav, section, details, summary {display: block;margin:0;padding:0;border:0;}
+
+img { outline:0;}
+:focus { outline: 0; }
+
+input, button, textarea, select, optgroup, option { font-family: inherit; font-size: inherit; font-style: inherit; font-weight: inherit; }
+
+code, kbd, samp, tt { font-size: 100%; }
+
+/*@purpose To enable resizing for IE */
+/*@branch For IE6-Win, IE7-Win */
+input, button, textarea, select { *font-size: 100%;}
+
+body { line-height:16px; }
+
+ol, ul, li { list-style: none; }
+
+:link, :visited, ins { text-decoration: none; }
+
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+
+strong{ vertical-align:bottom;}

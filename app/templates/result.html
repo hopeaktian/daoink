@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>支付结果</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+
+    <link rel="stylesheet" href="../static/lib/weui.min.css">
+    <link rel="stylesheet" href="../static/css/jquery-weui.css">
+    <link rel="stylesheet" href="../static/mycss/demos.css">
+    <link rel="stylesheet" href="../static/css/light7.css">
+    	
+    <style>
+      .icon-box {
+        margin-bottom: 25px;
+   		margin-left: 90px;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        align-items: center
+      }
+
+      .icon-box i {
+        margin-right: 18px
+      }
+
+      .icon-box__ctn {
+        -webkit-flex-shrink: 100;
+        flex-shrink: 100
+      }
+
+      .icon-box__title {
+        font-weight: 400;
+      }
+
+      .icon-box__desc {
+        margin-top: 6px;
+        font-size: 12px;
+        color: #888
+      }
+    </style>
+</head>
+<body>
+	<!--导航栏-->
+	<header class="bar bar-nav">
+	    <a class="button button-link button-nav pull-left back" href="/register">
+	      <span class="icon icon-left"></span>
+	            返回
+	    </a>
+	    <a class="button button-link button-nav pull-right" href="/">
+	 	    首页
+	      <span class="icon icon-right"></span>
+	    </a>
+	    <h1 class="title">支付结果</h1>
+	</header>
+	<!--内容--> 
+    <article class="weui-article">
+      <h1 style="margin-top: 50px;text-align:center;"></h1>
+    </article>   
+	{% if result == 1 %}
+          <div class="icon-box">
+              <div>
+                <i class="weui-icon-success weui-icon_msg"></i>
+                <div class="icon-box__ctn">
+                  <h3 class="icon-box__title" style="color: green;">支付成功！</h3>
+                  <p class="icon-box__desc"></p>
+                </div>
+              </div>
+          </div>
+	{% else %}
+	  <div class="icon-box">
+        <i class="weui-icon-warn weui-icon_msg"></i>
+        <div class="icon-box__ctn">
+          <h3 class="icon-box__title" style="color: red;">支付失败!</h3>
+          <p class="icon-box__desc">&nbsp;&nbsp;账户余额不足</p>
+        </div>
+      </div>
+	{% endif %}
+
+    <script src="../static/lib/jquery-2.1.4.js"></script>
+	<script src="../static/lib/fastclick.js"></script>
+	<script>
+	  $(function() {
+	    FastClick.attach(document.body);
+	  });
+	</script>
+	
+	
+	<script>
+      function skip() {
+      	 setInterval(50000);
+        $.modal({
+          title: "跳转",
+          text: "立刻返回首页",
+          buttons: [
+            { text: "确定", onClick: function(){ window.location.href='/'; } },
+            { text: "取消", className: "default"},
+          ]
+        });
+      };
+      $(function(){
+      	setTimeout('skip()',1000);//1秒
+      })
+    </script>  
+    
+	<script src="../static/js/jquery-weui.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>登录</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+		">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="../static/lib/weui.min.css">
+    <link rel="stylesheet" href="../static/css/jquery-weui.css">
+    <link rel="stylesheet" href="../static/mycss/demos.css">
+    <link rel="stylesheet" href="../static/css/light7.css">
+    <style type="text/css">
+        .weui-cell{
+            height: 45px;
+        }
+        html,body{ overflow:hidden;}
+        .form-login{
+            border: 1px solid #ddd;
+            border-top-color: rgb(221, 221, 221);
+            border-top-style: solid;
+            border-top-width: 1px;
+            border-right-color: rgb(221, 221, 221);
+            border-right-style: solid;
+            border-right-width: 1px;
+            border-bottom-color: rgb(221, 221, 221);
+            border-bottom-style: solid;
+            border-bottom-width: 1px;
+            border-left-color: rgb(221, 221, 221);
+            border-left-style: solid;
+            border-left-width: 1px;
+            border-image-source: initial;
+            border-image-slice: initial;
+            border-image-width: initial;
+            border-image-outset: initial;
+            border-image-repeat: initial;
+            border-radius: 4px;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+            border-bottom-right-radius: 4px;
+            border-bottom-left-radius: 4px;
+        }
+        .icon-back{
+
+        }
+    </style>
+</head>
+<body id="main" style="height: 100%;background-color: white ">
+    <div id="">
+        <script src="../static/lib/jquery-2.1.4.js"></script>
+        <script src="../static/lib/fastclick.js"></script>
+        <script src="../static/js/jquery-weui.js"></script>
+
+        <script>
+            var UserName = '{{ g.current_userphone }}'            // 后端数据
+            var time_now = '{{ now }}'
+            var flag = '{{ flag }}'
+        </script>
+
+        <!--导航栏-->
+        <header class="bar bar-nav" style="background-color: rgb(229,229,229,0.66)">
+            <a class="button button-link button-nav pull-left" href="/" style="margin-top: 8.96px;margin-bottom: 8.97px">
+                <img src="../static/font/back.png" style="height: 30px;width: 30px;">
+            </a>
+        </header>
+
+        <div class="text-center" style="margin-top: 18%;margin-bottom: 8%">
+            <img src="../static/font/logo2.png" style="width: 4rem;height: 4rem">
+        </div>
+        <form method="post" id="my-form" name="my-form">
+            <div class="weui-cells weui-cells_form form-login" style="background-color: white; margin-left: 30px;margin-right: 30px; margin-top: 0%">
+
+                <div class="weui-cell weui-cell_vcode" style="height: 50px;">
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" type="tel" name="tel" placeholder="请输入手机号" required="required" style="color: #9b9aa0">
+                    </div>
+                </div>
+            </div>
+            <div class="weui-cells weui-cells_form form-login" style="background-color: white; margin-left: 30px;margin-right: 30px; margin-top: 1%">
+                <div class="weui-cell weui-cell_vcode" style="height: 50px">
+                    <div class="weui-cell__bd">
+                        <input class="weui-input" type="password" name="password" placeholder="请输入密码" required="required" style="color: #9b9aa0" >
+                    </div>
+                </div>
+            </div>
+
+            <br>
+            <div class="weui-flex">
+                <div class="weui-flex__item" style="margin-left: 30px; margin-right: 30px">
+                    <input class="weui-btn weui-btn_primary" type="submit" value="登录">
+                </div>
+            </div>
+        </form>
+        <br>
+        <div>
+            <a class="pull-right" style="margin-right: 30px" href="/register">新用户注册</a>
+            <a class="pull-left" style="margin-left: 30px" href="/findpassword">忘记密码？</a>
+        </div>
+
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="weui-footer">
+            <p class="weui-footer__links">
+                <a href=" " class="weui-footer__link"></a>
+            </p>
+            <p class="weui-footer__text">Copyright © 2018 daoink.com</p>
+        </div>
+        {% if flag == 2 %}
+            <script>
+                $(function() {
+                    $.alert("登录失败，请重试", "警告")
+                });
+            </script>
+        {% endif %}
+
+
+    </div>
+
+{#    <script>#}
+{##}
+{#        var HEIGHT = $('body').height()+"px";#}
+{#        alert(HEIGHT);#}
+{#        $("#main").css(height,HEIGHT);#}
+{##}
+{#    </script>#}
+
+</body>
+
+</html>

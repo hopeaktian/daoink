@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>确认订单</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+
+    <link rel="stylesheet" href="../static/lib/weui.min.css">
+    <link rel="stylesheet" href="../static/css/jquery-weui.css">
+    <link rel="stylesheet" href="../static/mycss/demos.css">
+    <link rel="stylesheet" href="../static/css/light7.css">
+
+</head>
+<body>
+<!--导航栏-->
+    <header class="bar bar-nav">
+        <a class="button button-link button-nav pull-left back" href="/select">
+            <span class="icon icon-left" style="font-size: .8rem">返回</span>
+        </a>
+        <a class="button button-link button-nav pull-right" href="/">
+            <font color=crimson>取消</font>
+        </a>
+    </header>
+    <br>
+    <header class='demos-header'>
+        <h1 class="demos-title">确认订单</h1>
+    </header>
+
+
+    <div class="weui-form-preview">
+        <div class="weui-form-preview__hd">
+            <label class="weui-form-preview__label">付款金额</label>
+            <em class="weui-form-preview__value">¥{{ data["cost"] }}元</em>
+        </div>
+        <div class="weui-form-preview__bd">
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">文件</label>
+                <span class="weui-form-preview__value">{{ data["printfile"].filename }}</span>
+            </div>
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">打印点</label>
+                <span class="weui-form-preview__value">{{ data["place"] }}</span>
+            </div>
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">文件页数</label>
+                <span class="weui-form-preview__value">{{ data["pageCount"] }}页</span>
+            </div>
+            <div class="weui-form-preview__item">
+                <label class="weui-form-preview__label">打印份数</label>
+                <span class="weui-form-preview__value">{{ data["copies"] }}份</span>
+            </div>
+        </div>
+
+        <div>
+            <form method="post" action="/pay2">
+                <input type="hidden" name="filename" value="{{ data["new_filename"] }}">
+                <input type="hidden" name="place" value="{{ data["place"] }}">
+                <input type="hidden" name="copies" value="{{ data["copies"] }}">
+                <input type="hidden" name="direction" value="{{ data["direction"] }}">
+                <input type="hidden" name="colour" value="{{ data["colour"] }}">
+                <input type="hidden" name="paper_size" value="{{ data["paper_size"] }}">
+                <input type="hidden" name="print_way" value="{{ data["print_way"] }}">
+                <input type="hidden" name="time_way" value="{{ data["time_way"] }}">
+                <input type="hidden" name="cost" value="{{ data["cost"] }}">
+                <input type="hidden" name="tradeid" value="{{ data["tradeid"] }}">
+
+                <div class="weui-cells weui-cells_radio">
+                    <label class="weui-cell weui-check__label" for="x11">
+                        <div class="weui-cell__bd">
+                            <img src="../static/font/alipay.png" style="height: 40px; width: 40px">
+
+                        </div>
+                        <div class="weui-cell__ft">
+                            <input type="radio" class="weui-check" name="payway" value="1" id="x11" checked="checked">
+                            <span class="weui-icon-checked"></span>
+                        </div>
+                    </label>
+                    <label class="weui-cell weui-check__label" for="x12">
+
+                        <div class="weui-cell__bd">
+                            <img src="../static/font/weixinpay.jpg" style="height: 40px; width: 40px">
+                        </div>
+                        <div class="weui-cell__ft">
+                            <input type="radio" class="weui-check" name="payway" value="2" id="x12" >
+                            <span class="weui-icon-checked"></span>
+                        </div>
+                    </label>
+                </div>
+                <div class="weui-flex" style="margin-top: 5px">
+                    <div class="weui-flex__item " style="margin-left: 15px; margin-right: 15px">
+                        <input class="weui-btn weui-btn_primary" type="submit" value="去支付">
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!--
+        <div class="weui-flex" style="margin-top: 3px">
+            <div class="weui-flex__item" style="margin-left: 15px; margin-right: 15px">
+                <a href="/" class="weui-btn weui-btn_warn">取消</a>
+            </div>
+        </div>
+        -->
+    </div>
+
+
+
+</body>
+
+</html>

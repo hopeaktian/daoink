@@ -1,0 +1,115 @@
+/*!tabs*/
+.container{
+  height: 400px;
+  margin-top: 5px;
+  margin-bottom: 60px;
+  margin-left: 10px;
+  margin-right: 10px;
+  background-color: #EEEEEE;
+  box-shadow: 0 1px 3px #999999;
+  border-radius: 0.3em;
+}
+.tab-title{
+	font-size: 20px;
+	font-family: "微软雅黑";
+	margin-top: 20px;
+	margin-left: 13px;
+	color: #000000;
+}
+.tab-wrapper{
+  position: relative;
+  width: 100%;
+  height: 43px;
+  background-color: #EEEEEE;
+}
+.tab-wrapper .tab-radio{
+  display: none;
+}
+.tab-handler{
+  position: relative;
+  z-index: 2;
+  display: block;
+  float: left;
+  height: 40px;
+  padding: 0 5%;
+  color: #717181;
+  font-size: 16px;
+  line-height: 40px;
+  transition: .3s;
+  transform: scale(.9);
+}
+.tab-radio:checked + .tab-handler{
+  color: #00B555;
+  background-color: #EEEEEE;
+  border-bottom: 2px solid #00B555;
+  transform: scale(1);
+}
+.tab-radio:checked + .tab-handler + .tab-content{
+  visibility: visible;
+  opacity: 1;
+  transform: scale(1);
+}
+.tab-wrapper .tab-content{
+  visibility: hidden;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  width:100%;
+  color: #999;
+  font-size: 14px;
+  line-height: 1.618em;
+  background-color: #fff;
+  opacity: 0;
+  transition: transform .5s, opacity .7s;
+  transform: translateY(20px);
+}
+
+/*!搜索框*/
+#searchBar{
+	background-color: rgb(247, 247, 248);
+	height: 50px;
+}
+.weui-search-bar__form{
+	border-radius: 3em;
+	height: 32px;
+	border: 1px solid #E3E3E3;
+	margin-right: 10px;
+}
+#searchText{border-radius: 3em;}
+
+/*！其他*/
+.weui-form-preview{
+	margin-left: 15px;
+	margin-right: 15px;
+	margin-top: -35px;
+	margin-bottom: 45px;
+	border-radius: 0.8em;
+}
+select::-ms-expand { display: none; }
+.swiper-container {
+	width: 100%;
+}	
+.swiper-container img {
+	display: block;
+	width: 100%;
+}
+.weui-grids{
+	margin-left: 9px;
+	margin-right: 9px;
+	background-color: white;
+	border-top-left-radius: 0.5em;
+	border-top-right-radius: 0.5em;
+	z-index: 999;
+}	
+.weui-media-box__title-after{
+	margin-top: -12px;
+}		
+.online{
+	color: #00B555;
+}	
+.offline{
+	color: #999999;
+}
+.weui-footer {
+    margin: 25px 0 10px 0;
+}

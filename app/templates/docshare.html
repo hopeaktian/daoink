@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html class="">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=0.9, user-scalable=no">
+	<title>标签云</title>
+	
+	<!--- CSS --->
+	<link rel="stylesheet" href="../static/css/reset.css">
+	<link rel="stylesheet" href="../static/css/template.css">
+	<link rel="stylesheet" href="../static/css/style.css">
+	<link rel="stylesheet" href="../static/css/swiper.min.css">
+		
+	<!--- JS --->
+	<script type="text/javascript" src="../static/js/jquery-latest.min.js"></script>
+	<script type="text/javascript" src="../static/js/menu.js"></script>
+	<script type="text/javascript" src="../static/js/gotop.js"></script>
+	
+	<style>
+		.sent-btn{
+			border: 0px groove orange;
+			box-shadow: 2px 5px -3px #0675BB;
+			margin-left: 0px;
+			border-radius: 10px;
+			background: #336AD9;
+			color: white;
+			width: 50px;
+			height: 30px;
+			font-size: 14px;			
+		}
+		.like{ font-size:20px;  color:#ccc; cursor:pointer;float:right;width:20px;height:20px;margin-top: 5px;margin-right: 3%;}
+		.likenum{ font-size:14px; float:right;width:20px;height:20px;margin-top: 5px;}
+		.cs{color:#f00;}
+	</style>
+</head>
+
+<body style="margin-right: 0px;">
+
+<!-- Header -->
+<div class="navbar" style="right: -250px;">  
+    <ul class="right-nav">		
+        <li><a class="gre" href="javascript:">我要上传</a></li>
+	<li><a href="javascript:">我的贡献</a></li>
+	<li><a href="javascript:">我的下载</a></li>
+	<li><a href="javascript:">我的收藏</a></li>
+	<li><a href="javascript:">最近阅读</a></li>
+    </ul>
+</div>
+<div id="menu_back2" style="display: none;"></div>
+
+<header>
+   <div class="wrap">	
+	<a href="/" id="menu-btn1"></a>
+	<a id="headtitle">资料共享</a>
+        <a href="javascript:" id="menu-btn2"></a>
+   </div>
+</header>
+
+<div class="content">
+	<div class="wrap contentwrap" style="margin-top: 25px;">
+		
+		<!--固定搜索框-->
+		<search><!--使浮动-->
+			<form id="search-form" action="/search" method="post" style="margin-left: 15px;margin-top:10px ;">
+				<div style="display:none"><input type="hidden" value="699c18082aadf4cac751e89df6f91e3eed981c7c" name="PORF_TOKEN" /></div>
+				<input type="text" id="searchterm" name="name" placeholder="文件名" style="border-radius: 3em;">		  
+				<input class="sent-btn" value="搜索" type="submit" name="yt0" />
+			</form>
+		</search>
+		
+		<br />
+		
+		<!--标签云-->
+		<div class="cates-tags">
+		    <h3 class="title m-b-m">所有标签 <span class="t-gray">(可复选)</span></h3>
+	        <div>
+	        	<label><input id="tag_check" type="checkbox" class="tags-select" name="a[]" value="1"><span class="check">中小学</span></label>
+	        	<label><input id="tag_check" type="checkbox" class="tags-select" name="a[]" value="2"><span class="check">高等教育</span></label>
+	        	<label><input id="tag_check" type="checkbox" class="tags-select" name="a[]" value="3"><span class="check">资格考试</span></label>
+	        	<label><input id="tag_check" type="checkbox" class="tags-select" name="a[]" value="4"><span class="check">法律文书</span></label>
+	        	<label><input id="tag_check" type="checkbox" class="tags-select" name="a[]" value="5"><span class="check">PPT</span></label>
+	        	<label><input id="tag_check" type="checkbox" class="tags-select" name="a[]" value="6"><span class="check">求职简历</span></label>
+	        	<label><input id="tag_check" type="checkbox" class="tags-select" name="a[]" value="7"><span class="check">行业报告</span></label>
+	        	<label><input id="tag_check" type="checkbox" class="tags-select" name="a[]" value="8"><span class="check">党团工作</span></label>
+	        	<label><input id="tag_check" type="checkbox" checked="" class="tags-select" name="a[]" value="9"><span class="check">课后答案</span></label>
+	        	<label><input id="tag_check" type="checkbox" class="tags-select" name="a[]" value="10"><span class="check">四六级</span></label>
+	        	<label><input id="tag_check" type="checkbox" class="tags-select" name="a[]" value="11"><span class="check">文学</span></label>
+	        	<label><input id="tag_check" type="checkbox" class="tags-select" name="a[]" value="12"><span class="check">作文库</span></label>
+	        	<label><input id="tag_check" type="checkbox" class="tags-select" name="a[]" value="13"><span class="check">高等数学</span></label>
+	        	<label><input id="tag_check" type="checkbox" class="tags-select" name="a[]" value="14"><span class="check">考研资料</span></label>
+	        	<label><input id="tag_check" type="checkbox" class="tags-select" name="a[]" value="15"><span class="check">课程学习</span></label>
+	        	<label><input id="tag_check" type="checkbox" class="tags-select" name="a[]" value="21"><span class="check">竞赛</span></label>
+	        	<label><input id="tag_check" type="checkbox" class="tags-select" name="a[]" value="22"><span class="check">实验</span></label>
+	        	<label><input id="tag_check" type="checkbox" class="tags-select" name="a[]" value="23"><span class="check">计算机</span></label>
+	        	<label><input id="tag_check" type="checkbox" class="tags-select" name="a[]" value="24"><span class="check">论文</span></label>
+	        	<label><input id="tag_check" type="checkbox" class="tags-select" name="a[]" value="25"><span class="check">图片</span></label>
+	        	<label><input id="tag_check" type="checkbox" class="tags-select" name="a[]" value="26"><span class="check">不限</span></label>
+	        	<label><input id="tag_check" type="checkbox" class="tags-select" name="a[]" value="27"><span class="check">电子制作</span></label>
+	        	<label><input id="tag_check" type="checkbox" class="tags-select" name="a[]" value="28"><span class="check">娱乐</span></label>
+	        	<label><input id="tag_check" type="checkbox" class="tags-select" name="a[]" value="29"><span class="check">活动策划</span></label>            
+	        </div>
+		</div>
+		
+		<!--排序-->
+		<div class="left col7 fortabs">
+		    <ul class="tabs title2" style="margin-bottom: 10px;">		
+			<li><a href="#tab1">综合排序<span></span></a></li>
+		        <li><a href="#tab2">&nbsp;&nbsp;人气&nbsp;&nbsp;<span></span></a></li>
+		        <li><a href="#tab3">&nbsp;&nbsp;时间&nbsp;&nbsp;<span></span></a></li>
+		    </ul>
+		    
+            <div class="tab_container">		
+               <!--综合排序-->
+               <div id="tab1" class="tab_container list-bookUI"> 
+                    <div class="tab_content">
+						<div class="box">
+							<div class="left">
+							<a title="高数上答案" href="/books/671182"><img src="../static/img/mathanswer.jpg" class="cover-m" alt="高数上答案"></a>
+							</div>
+
+							<div class="right">
+								<a class="like">&#10084;</a><a class="likenum">66</a>
+								<a title="高数上答案" class="bname" href="/books/671182">高数上答案.pdf</a>
+								<a class="author" href="/users/15105069901">天天</a>
+								<div class="detail"><span class="t-gray m-r-s">上传时间</span>2019年2月2日</div>
+								<div class="desc">同济大学高等数学上册第七版答案，PDF全</div>
+							</div>
+
+							<!-- 标签云 -->
+							<div class="tag-area">
+							<span class="ico">
+							    <img src="../static/img/icon-tag.png" width="15" height="15">
+							</span>
+							    <a href="/tags/3">资格考试</a><a class="f-bold blue" href="/tags/9">课后答案</a><a href="/tags/13">高等数学</a>
+							</div>
+						</div>
+
+						<div class="box">
+							<div class="left">
+							<a title="高数上答案" href="/books/671182"><img src="../static/img/mathanswer.jpg" class="cover-m" alt="高数上答案"></a>
+							</div>
+
+							<div class="right">
+								<a class="like">&#10084;</a><a class="likenum">9</a>
+								<a title="高数下答案" class="bname" href="/books/671182">高数下答案.pdf</a>
+								<a class="author" href="/users/15105069901">天天</a>
+								<div class="detail"><span class="t-gray m-r-s">上传时间</span>2019年2月2日</div>
+								<div class="desc">同济大学高等数学下册第七版答案，PDF全</div>
+							</div>
+
+							<!-- 标签云 -->
+							<div class="tag-area">
+							<span class="ico">
+							    <img src="../static/img/icon-tag.png" width="15" height="15">
+							</span>
+							    <a href="/tags/3">资格考试</a><a class="f-bold blue" href="/tags/9">课后答案</a><a href="/tags/13">高等数学</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="pagenum">
+						<div id="yw1" class="center">
+							<span class=" disabled"><img src="../static/img/icon-page-first.png" width="9" height="9"></span>
+							<span class=" disabled"><img src="../static/img/icon-page-prev.png" width="7" height="7"></span>
+							<span class=" current">1</span>
+							<a href="/tags?id=9&amp;page=2">2</a>
+							<a href="/tags?id=9&amp;page=3">3</a>
+							<a href="/tags?id=9&amp;page=4">4</a>
+							<a href="/tags?id=9&amp;page=5">5</a>
+							<a href="/tags?id=9&amp;page=6">6</a>
+							<a href="/tags?id=9&amp;page=7">7</a>
+							<a href="/tags?id=9&amp;page=8">8</a>
+							<a href="/tags?id=9&amp;page=9">9</a>
+							<a href="/tags?id=9&amp;page=10">10</a>
+							<span class="gap">...</span>
+							<a href="/tags?id=9&amp;page=2"><img src="../static/img/icon-page-next.png" width="7" height="7"></a>
+							<a href="/tags?id=9&amp;page=100"><img src="../static/img/icon-page-last.png" width="9" height="9"></a>
+						</div>
+					</div>
+              </div>
+
+  	          <!--人气-->
+  	          <div id="tab2" class="tab_container list-bookUI">
+                    <div class="tab_content">
+						<div class="box">
+							<div class="left">
+							<a title="高数上答案" href="/books/671182"><img src="../static/img/mathanswer.jpg" class="cover-m" alt="高数上答案"></a>
+							</div>
+
+							<div class="right">
+								<a class="like">&#10084;</a><a class="likenum">9</a>
+								<a title="高数下答案" class="bname" href="/books/671182">高数下答案.pdf</a>
+								<a class="author" href="/users/15105069901">天天</a>
+								<div class="detail"><span class="t-gray m-r-s">上传时间</span>2019年2月2日</div>
+								<div class="desc">同济大学高等数学下册第七版答案，PDF全</div>
+							</div>
+
+							<!-- 标签云 -->
+							<div class="tag-area">
+							<span class="ico">
+							    <img src="../static/img/icon-tag.png" width="15" height="15">
+							</span>
+							    <a href="/tags/3">资格考试</a><a class="f-bold blue" href="/tags/9">课后答案</a><a href="/tags/13">高等数学</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="pagenum">
+						<div id="yw1" class="center">
+							<span class=" disabled"><img src="../static/img/icon-page-first.png" width="9" height="9"></span>
+							<span class=" disabled"><img src="../static/img/icon-page-prev.png" width="7" height="7"></span>
+							<span class=" current">1</span>
+							<a href="/tags?id=9&amp;page=2">2</a>
+							<a href="/tags?id=9&amp;page=3">3</a>
+							<a href="/tags?id=9&amp;page=4">4</a>
+							<a href="/tags?id=9&amp;page=5">5</a>
+							<a href="/tags?id=9&amp;page=6">6</a>
+							<a href="/tags?id=9&amp;page=7">7</a>
+							<a href="/tags?id=9&amp;page=8">8</a>
+							<a href="/tags?id=9&amp;page=9">9</a>
+							<a href="/tags?id=9&amp;page=10">10</a>
+							<span class="gap">...</span>
+							<a href="/tags?id=9&amp;page=2"><img src="../static/img/icon-page-next.png" width="7" height="7"></a>
+							<a href="/tags?id=9&amp;page=100"><img src="../static/img/icon-page-last.png" width="9" height="9"></a>
+						</div>
+					</div>
+              </div>
+
+              <!--时间-->
+              <div id="tab3" class="tab_container list-bookUI">
+                    <div class="tab_content">
+						<div class="box">
+							<div class="left">
+							<a title="高数上答案" href="/books/671182"><img src="../static/img/mathanswer.jpg" class="cover-m" alt="高数上答案"></a>
+							</div>
+
+							<div class="right">
+								<a class="like">&#10084;</a><a class="likenum">66</a>
+								<a title="高数上答案" class="bname" href="/books/671182">高数上答案.pdf</a>
+								<a class="author" href="/users/15105069901">天天</a>
+								<div class="detail"><span class="t-gray m-r-s">上传时间</span>2019年2月2日</div>
+								<div class="desc">同济大学高等数学上册第七版答案，PDF全</div>
+							</div>
+
+							<!-- 标签云 -->
+							<div class="tag-area">
+							<span class="ico">
+							    <img src="../static/img/icon-tag.png" width="15" height="15">
+							</span>
+							    <a href="/tags/3">资格考试</a><a class="f-bold blue" href="/tags/9">课后答案</a><a href="/tags/13">高等数学</a>
+							</div>
+						</div>
+					</div>
+
+					<div class="pagenum">
+						<div id="yw1" class="center">
+							<span class=" disabled"><img src="../static/img/icon-page-first.png" width="9" height="9"></span>
+							<span class=" disabled"><img src="../static/img/icon-page-prev.png" width="7" height="7"></span>
+							<span class=" current">1</span>
+							<a href="/tags?id=9&amp;page=2">2</a>
+							<a href="/tags?id=9&amp;page=3">3</a>
+							<a href="/tags?id=9&amp;page=4">4</a>
+							<a href="/tags?id=9&amp;page=5">5</a>
+							<a href="/tags?id=9&amp;page=6">6</a>
+							<a href="/tags?id=9&amp;page=7">7</a>
+							<a href="/tags?id=9&amp;page=8">8</a>
+							<a href="/tags?id=9&amp;page=9">9</a>
+							<a href="/tags?id=9&amp;page=10">10</a>
+							<span class="gap">...</span>
+							<a href="/tags?id=9&amp;page=2"><img src="../static/img/icon-page-next.png" width="7" height="7"></a>
+							<a href="/tags?id=9&amp;page=100"><img src="../static/img/icon-page-last.png" width="9" height="9"></a>
+						</div>
+					</div>
+              </div>
+
+            </div>
+        </div>
+
+		<!--热门下载-->
+	    <div class="right col3">
+	        <div class="m_none"><!-- mobile hide -->
+	        <h3 class="title m-t-m">热门下载</h3>
+	            <div class="box simplelist">
+		            <div id="yw3" class="list-view">
+						<div class="items">
+							<a class="bname" href="/books/642866">英语四级真题</a>
+							<a class="bname" href="/books/656875">物理实验报告</a>
+							<a class="bname" href="/books/584390">电路PPT</a>
+							<a class="bname" href="/books/655832">生产实习日志</a>
+							<a class="bname" href="/books/599998">同济大学版高数答案</a>
+							<a class="bname" href="/books/668114">入党申请</a>
+							<a class="bname" href="/books/667202">简历模板</a>
+							<a class="bname" href="/books/600093">模电历年考试题</a>
+							<a class="bname" href="/books/656005">数电课设</a>
+							<a class="bname" href="/books/548166">智能小车设计</a>
+						</div>
+						<div class="keys" style="display:none" title="/tags/9">
+							<span>642866</span>
+							<span>656875</span>
+							<span>584390</span>
+							<span>655832</span>
+							<span>599998</span>
+							<span>668114</span>
+							<span>667202</span>
+							<span>600093</span>
+							<span>656005</span>
+							<span>548166</span>
+						</div>
+					</div>
+	            </div><!-- box -->
+	        </div><!-- mobile hide -->
+	    </div><!--right-->
+	</div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <!--<div class="copy-area animate-plus" data-animations="fadeIn" data-animation-delay="0s" data-animation-when-visible="true">-->
+    <div class="copy-area animate-plus" data-animations="fadeIn" data-animation-delay="0s" data-animation-when-visible="true">
+        <div class="wrap foot">
+	        <a href="/books/34053" title="关于">
+	            <div class="left"><img src="../static/img/roo.gif" width="88" height="88" alt="关于" title="关于"></div>
+	            <div class="right"><font size="4" face="微软雅黑" color="#3D4145">关于</font><p>本应用实现免排队，可预约型“共享打印”</p></div>
+	        </a>
+	        <a href="/faq" title="使用指南">
+	            <div class="left"><img src="../static/img/roo.gif" width="88" height="88" alt="使用指南" title="使用指南"></div>
+	            <div class="right"><font size="4" face="微软雅黑" color="#3D4145">使用指南</font><p>使用手册，常见问题这边找</p></div>
+	        </a>
+    	</div>
+    </div>
+</footer> 
+<a id="gotop" href="#top" style="display: none;"></a> 
+
+<script src="../static/js/tabs.js"></script>
+<script>
+    $(function () {            
+        $(".like").click(function () {
+            $(this).toggleClass('cs');                
+        })
+    })
+</script>
+</body>
+</html>
